@@ -8,7 +8,7 @@ void setup()
   Serial.begin(9600);
 }
 int readPin = 0,tap = 1;
-float sta=0,sto=0,diff=0,odiff=0;
+float sta=0,sto=0,diff=0,osta=0,odiff=0;
 void loop()
 {
   readPin=digitalRead(IRsensor);
@@ -23,7 +23,7 @@ float dtime(int value)
   sta=millis();
   tone(buzz,1000);
   tap=0;
-  odiff=sta-sto;
+  odiff=osta-sto;
   //Serial.print("space size=");Serial.println(odiff);
   if(odiff>=3*un&&odiff<7*un)
   Serial.print(' ');
@@ -42,5 +42,6 @@ float dtime(int value)
   if(diff>=3*un)
   Serial.print('-');
 }
-  
+  if((tap==1)&&(value==1))
+  osta=millis();
 }
