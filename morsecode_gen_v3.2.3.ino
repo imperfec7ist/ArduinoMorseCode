@@ -73,19 +73,19 @@ char classify(int value)
   tone(buzz,1000);
   tap=0;
   odiff=osta-sto;
-  //Serial.print("space size=");Serial.println(odiff);
+  
   if(odiff>=3*un&&odiff<7*un)
   {
     message=translate(morlet);
-    //Serial.print(message);
-    //Serial.print(morlet);
+    //Serial.println(morlet);
+    Serial.print(message);
     morlet="";
   }
   if(odiff>=7*un)
   {
-    message=(translate(morlet))+' ';
-    //Serial.print(message);
-    //Serial.print(morlet);
+    message=translate(morlet);
+    //Serial.println(morlet);
+    Serial.print(message);Serial.print(' ');
     morlet="";
   }
 }
@@ -95,7 +95,6 @@ char classify(int value)
   noTone(buzz);
   tap=1;
   diff=sto-sta;
-  //Serial.print("ditda size=");Serial.println(diff);
   if(diff<3*un)
   {/*Serial.print*/(morlet+='.');}
   if(diff>=3*un)
@@ -108,16 +107,12 @@ char classify(int value)
 char translate(String morbuff)//translates morse code signal sequence by comparison with char* arrays alpha and num. morbuff=morlet
 {
   char character;
-  //char ch[morbuff.length()];
-  //for (int i = 0; i < morbuff.length(); i++)//converts string morbuff to character array for comparison
-  //{ch[i] = morbuff.charAt(i);}
-  
   for (int y=0;y<26;y++)
   {
     if (morbuff==alpha[y])
     {
     character=65+y;
-    Serial.print(character);
+    //Serial.print(character);
     }
   }
   for (int y=0;y<10;y++)
@@ -125,7 +120,7 @@ char translate(String morbuff)//translates morse code signal sequence by compari
     if (morbuff==num[y])
     {
     character=48+y;
-    Serial.print(character);
+    //Serial.print(character);
     }
   }
   return character;//character returned to message
