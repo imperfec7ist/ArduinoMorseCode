@@ -8,7 +8,7 @@ Arduino program that translates Morse Code (light flashes or tapping) into chara
 
 ->morecode_gen_control.ino Arduino code with to test working of photoresistor input; measures time between inputs
 
-#### **morsecode_gen_v3.2.3.ino Arduino code that actually translates - it WORKS! (Barely Working since some fixes are required).**
+#### ->**morsecode_gen_v3.2.3.ino Arduino code that actually translates - it WORKS! (Barely Working since some fixes are required).**
 
 >->_morsecode_gen_v3.2.3_button.ino The same barely working code but with inverted input to support Normally Open sensors and switches - test this on tinkercad circuits using pushbutton._
 
